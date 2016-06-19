@@ -2,6 +2,7 @@
 ## Single Page App / Event Listeners / WYSIWYG
 
 ![WYSIWYG screenshot](images/wysiwyg.jpg?raw=true "WYSIWYG Screenshot")
+[Check it out on CODEPEN](http://codepen.io/IAmericanArtist/pen/QEKaMd)
 
 ## Instructions
 

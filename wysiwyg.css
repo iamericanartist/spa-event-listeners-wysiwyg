@@ -14,7 +14,7 @@ html {
 }
 #cutCorner {
   width: 95%;
-  margin: 0 2.5%;
+  margin: 30px 2.5% 0;
   border-left: 80px solid transparent;
   border-bottom: 50px solid rgba(132,210,214,.35);
   border-right: 80px solid transparent;
@@ -65,18 +65,18 @@ html {
 .bluthCard {
   color: red; 
   text-align: center;
-  width: 45%;
+  width: 30.33333%;
   min-width: 300px;
-/*  max-width: 500px;*/
-  /*min-height: 800px;*/
-  margin: 10px 2.5%;
-  background-color: rgba(255,250,246,1);
-  border: 1px solid rgba(001,001,001, .1);
+  margin: 10px 1.5%;
+  height: 800px;
+  background-color: rgba(255,250,246, 1);
+  border: 3px solid rgba(255,255,255, .1);
   border-radius: 10px;
   box-shadow: 0px 15px 40px -20px rgba(15, 015, 015, 0.75);
-  transform: rotate(-2deg)scale(0.95);
+  transform: rotate(-2deg)scale(.96);
   display: inline-block;
   float: left;
+  transition: .5s;
 }
 h2 {
   margin: 5px;
@@ -91,7 +91,7 @@ section img {
   border-radius: 20px 0;
 }
 .dosierPhoto {
-  height: 550px;
+  height: 450px;
   object-fit: cover; /*ties in to the WITDH set in the "section img" styling above*/
   object-position: 50% 10%; /* default value: image is centered  (1st L-R / 2nd Top-Bot.)*/ 
 }
@@ -110,4 +110,33 @@ section img {
 }
 footer p {
   display: inline-block;
+}
+
+/****************** Even/Odd Card Styling ******************/
+/* BG to Yellow */
+.bluthCard:nth-of-type(even) {
+  background-color: lightgoldenrodyellow;
+  transform: rotate(1.5deg) scale(.96);
+}
+/* BG to Blue */
+.bluthCard:nth-of-type(odd) {
+  background-color: azure;
+  transform: rotate(-1deg) scale(.96);
+  /*background-color: yellow;*/
+}
+.bluthCard:nth-of-type(2n+3) {
+  transform: rotate(-1.5deg) scale(.96);
+  /*background-color: red;*/
+}
+.bluthCard:nth-of-type(4n+0) {
+  transform: rotate(0deg) scale(.96);
+  /*background-color: blue;*/
+}
+
+
+/****************** onClick Card Styling ******************/
+.borderTown {
+  border: 3px dotted midnightblue;
+  box-shadow: 0px 10px 20px -5px rgba(15, 015, 015, 0.85);
+
 }
