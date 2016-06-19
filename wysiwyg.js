@@ -17,7 +17,7 @@ var bluthMember = [
     title: "Magician",
     name: "George Oscar Bluth",
     bio: "G.O.B. (short for George Oscar Bluth) is the oldest of the five Bluth children. Named after his father, G.O.B. inherited none of George's intelligence or motivation. His greed led him to the life of a magician, among other quick-income professions such as male stripping. After receiving media attention revealing how an illusion worked, G.O.B. was blacklisted from magic and struggled to make his way back into the inner circle. ",
-    image: "GOB.jpg",
+    image: "images/GOB.jpg",
     lifespan: {
       birth: 1969,
       death: "n/a"
@@ -64,20 +64,74 @@ var bluthMember = [
     }
   }
 ];
+
+
 // // 2. Create a text input in your DOM.
 var updateBioTextEl = document.getElementById("updateBioText"), //basically the "TEXT INPUT" AREA
     counter = 0;
 
 
-
-
 // // 3. Beneath that, create a container, block element in your DOM.
-    // //  See index.html
 // // 4. Create a DOM element for each of the objects inside the container. Style your person elements however you like.
+var bluthDOMED = document.getElementById("outputArea");
+//add content to DOM
+for (var i = 0; i < bluthMember.length; i++) {
+  var bluthCard = bluthMember[i];
+
+  bluthDOMED.innerHTML += `
+    <person id="bluthCard-${i}" class="bluthCard" onClick="identifyClickedElement()">
+      <header class="bluthNameTitle">
+        <h2>${bluthCard.name}</h2> 
+        <h4>${bluthCard.title}</h4>
+        <hr>
+      </header>
+
+      <section>
+        <img class="dosierPhoto" src="${bluthCard.image}" alt="${bluthCard.title} ${bluthCard.name}">
+        <p id="bluthAbout">${bluthCard.bio}</p>
+      </section>
+      
+      <footer class="bluthLife">
+        <p>Born: ${bluthCard.lifespan.birth} / </p>
+        <p>Died: ${bluthCard.lifespan.death}</p>
+      </footer>
+    </person>
+    `;
+    console.log("<---This many cards");
+}
+
+
 // // 5. For every even numbered element, have a light yellow background.
+for (var i = 0; i <= bluthMember.length; i++) {
+  bluthMember[i]
+}
+
 // // 6. For every odd numbered element, have a light blue background.
 // // 7. Each element's DOM structure should be as shown below.
 // // 8. When you click on one of the person elements, a dotted border should appear around it.
 // // 9. When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
 // // 10. When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
+
+
+// for 
+updateBioTextEl.addEventListener("keyup", (function(event) {
+  bluthAbout.innerHTML = updateBioTextEl.value;
+  // console.log("on keyup =", keypressInputEl.value);
+}));
+
+
 // // 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
+function ifEnterKey () {
+  if (event.which === 13) {
+  // console.log(">>Enter was pushed");
+  console.log(">>Text entered: ", updateBioTextEl.value);
+  updateBioTextEl.value = "";
+  // console.log(">>Text added, input cleared √", updateBioTextEl.value);
+  } 
+  // else {  //only used to check key press values
+  //   console.log(event.which," was Pushed");
+  // }
+}
+
+// updateBioTextEl.addEventListener("keyup", ifEnterKey) // ALL Key listener on text field
+updateBioTextEl.addEventListener("keyup", ifEnterKey) // ENTER Key listener on text field
