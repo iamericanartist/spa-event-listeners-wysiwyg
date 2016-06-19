@@ -1,4 +1,5 @@
-/*rgba(132,210,214,1)
+/* COLORS TO USE:
+rgba(132,210,214,1)
 rgba(255,196,156,1)
 rgba(255,250,246,1)
 rgba(157,158,158,1)
@@ -20,8 +21,11 @@ html {
 }
 #manilla {
   width: 95%;
-  margin: 0 2.5%;
+  margin: 0 2.5% 50px;
+  padding-bottom: 30px;
   background: linear-gradient(to bottom, rgba(132,210,214,.70) 0%, rgba(132,210,214,.30) 100%);
+  box-shadow: 0px 5px 20px -10px rgba(15, 015, 015, 0.55), 0px 87px 80px -100px rgba(15, 015, 015, 0.55), 0px 85px 170px -120px rgba(15, 015, 015, 0.55);
+  overflow: hidden; /* can also be "auto" */
 }
 #pageTitle {
   color: darkblue;
@@ -63,7 +67,8 @@ html {
   text-align: center;
   width: 45%;
   min-width: 300px;
-  max-width: 500px;
+/*  max-width: 500px;*/
+  /*min-height: 800px;*/
   margin: 10px 2.5%;
   background-color: rgba(255,250,246,1);
   border: 1px solid rgba(001,001,001, .1);
@@ -71,6 +76,7 @@ html {
   box-shadow: 0px 15px 40px -20px rgba(15, 015, 015, 0.75);
   transform: rotate(-2deg)scale(0.95);
   display: inline-block;
+  float: left;
 }
 h2 {
   margin: 5px;
@@ -84,13 +90,24 @@ section img {
   margin: 2.5%;
   border-radius: 20px 0;
 }
-.bluthAbout {
+.dosierPhoto {
+  height: 550px;
+  object-fit: cover; /*ties in to the WITDH set in the "section img" styling above*/
+  object-position: 50% 10%; /* default value: image is centered  (1st L-R / 2nd Top-Bot.)*/ 
+}
+#bluthAbout {
   font-size: .9rem;
-  margin: 2px 5px;
+  text-align: justify;
+  width: 95%;
+  margin: 2px 2.5%;
 }
 .bluthLife {
   font-size: 1.1rem;
   padding: 10px;
+  font-family: Impact;
   margin: 2px 5px;
+  /*transform: rotate(-15deg);*/
 }
-
+footer p {
+  display: inline-block;
+}
