@@ -14,7 +14,7 @@ html {
 }
 #cutCorner {
   width: 95%;
-  margin: 30px 2.5% 0;
+  margin: 50px 2.5% 0;
   border-left: 80px solid transparent;
   border-bottom: 50px solid rgba(132,210,214,.35);
   border-right: 80px solid transparent;
@@ -28,11 +28,12 @@ html {
   overflow: hidden; /* can also be "auto" */
 }
 #pageTitle {
+  font-size: 1.3rem;
   color: darkblue;
   text-align: center;
 }
 #pageTitle h1 {
-  margin: 0 0 2px 0;
+  margin: 20px 0 2px 0;
   padding-top: 10px;
 }
 #pageTitle h3 {
@@ -42,8 +43,8 @@ html {
 
 /****************** INPUT AREA STYLING ******************/
 #inputArea {
-  padding: 10px;
-  margin: 2px 0% 30px;
+  padding: 10px 10px 40px;
+  margin: 1px 0% 20px;
   width: 100%;
   border-bottom: 3px solid rgba(0,0,108,.7);
   border-radius: 0px 0px 50px 50px;
@@ -106,7 +107,6 @@ section img {
   padding: 10px;
   font-family: Impact;
   margin: 2px 5px;
-  /*transform: rotate(-15deg);*/
 }
 footer p {
   display: inline-block;
@@ -138,5 +138,11 @@ footer p {
 .borderTown {
   border: 3px dotted midnightblue;
   box-shadow: 0px 10px 20px -5px rgba(15, 015, 015, 0.85);
-
 }
+
+
+/****************** Instructions Styling ******************/
+#instructions {
+  color: slategrey;
+  padding: 10px 6% 50px;
+  }

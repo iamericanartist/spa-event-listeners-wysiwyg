@@ -28,7 +28,7 @@ var bluthMember = [
     image: "images/BusterBluth.jpg",
     lifespan: {
       birth: 1973,
-      death: "TBD"
+      death: "n/a"
     }
   },{
     title: "Bluth Company ",
@@ -37,7 +37,7 @@ var bluthMember = [
     image: "images/LindsayBluth.jpg",
     lifespan: {
       birth: 1971,
-      death: "TBD"
+      death: "n/a"
     }
   },{
     title: "Bluth Company Founder",
@@ -46,7 +46,7 @@ var bluthMember = [
     image: "images/GeorgeBluth.jpg",
     lifespan: {
       birth: 1944,
-      death: "TBD"
+      death: "n/a"
     }
   },{
     title: "Bluth Family Matriarch",
@@ -55,14 +55,15 @@ var bluthMember = [
     image: "images/LucilleBluth.jpg",
     lifespan: {
       birth: 1949,
-      death: "TBD"
+      death: "n/a"
     }
   }
 ];
 
-
 // // 2. Create a text input in your DOM.
 var updateBioTextEl = document.getElementById("updateBioText"), //basically the "TEXT INPUT" AREA
+    thisBluthCard = document.getElementsByClassName("bluthCard"), //for selecting the cards by class names
+    bluthAbout, //GLOBAL BLUTHABOUT
     counter = 0;
 
 
@@ -81,7 +82,7 @@ for (var i = 0; i < bluthMember.length; i++) {
       </header>
       <section>
         <img class="dosierPhoto" src="${bluthCard.image}" alt="${bluthCard.title} ${bluthCard.name}">
-        <p id="bluthAbout">${bluthCard.bio}</p>
+        <p class="bluthAbout">${bluthCard.bio}</p>
       </section>
       <footer class="bluthLife">
         <p>Born: ${bluthCard.lifespan.birth} / </p>
@@ -103,39 +104,36 @@ for (var i = 0; i < bluthMember.length; i++) {
 
 // // 8. When you click on one of the person elements, a dotted border should appear around it.
 // // 9. When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
-var thisBluthCard = document.getElementsByClassName("bluthCard");
 for (var i = 0; i < thisBluthCard.length; i++) {
   thisBluthCard[i].addEventListener("click", addBorder);
 }
-function addBorder(ID) {
-  // console.log("Banana Store!");
+
+function addBorder(event, ID) {
   for (var j = 0; j < thisBluthCard.length; j++){
     thisBluthCard[j].classList.remove("borderTown");
   }
   thisBluthCard[this.id].classList.add("borderTown");
-  document.getElementById("updateBioText").focus();
-  console.log("This Card is ", thisBluthCard[this.id]);
+  updateBioTextEl.focus();
+
+  var asdf = event.currentTarget;
+  bluthAbout = asdf.querySelector(".bluthAbout");
 }
 
 
 // // 10. When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
-updateBioTextEl.addEventListener("keyup", (function(event) {
-  bluthAbout.innerHTML = updateBioTextEl.value;
-  // console.log("on keyup =", keypressInputEl.value);
-}));
-
-
-
 // // 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 function ifEnterKey () {
   if (event.which === 13) {
-  // console.log(">>Enter was pushed");
-  console.log(">>Text entered: ", updateBioTextEl.value);
-  updateBioTextEl.value = "";
-  // console.log(">>Text added, input cleared √", updateBioTextEl.value);
-  } 
+    updateBioTextEl.value = "";
+    // console.log(">>Text added, input cleared", updateBioTextEl.value);
+    // console.log(">>Enter was pushed");
+  } else {
+    bluthAbout.innerHTML = updateBioTextEl.value  ;
+    console.log(updateBioText.value)
+  }
 }
 
+
 // // EVENT LISTENERS
-// updateBioTextEl.addEventListener("keyup", ifEnterKey) // ALL Key listener on text field
 updateBioTextEl.addEventListener("keyup", ifEnterKey) // ENTER Key listener on text field
+// updateBioTextEl.addEventListener("keyup", ifEnterKey) // ALL Key listener on text field
